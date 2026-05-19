@@ -34,7 +34,7 @@ return {
         },
       },
       runner_ui = {
-        interface = "split",
+        interface = "popup",
         selector_show_nu = false,
         selector_show_rnu = false,
         show_nu = true,
@@ -63,9 +63,20 @@ return {
         total_width = 0.8,
         total_height = 0.8,
         layout = {
-          { 4, "tc" },
-          { 5, { { 1, "so" }, { 1, "si" } } },
-          { 5, { { 1, "eo" }, { 1, "se" } } },
+          {
+            1,
+            {
+              { 1, "so" },
+              { 1, {
+                { 1, "tc" },
+                { 1, "se" },
+              } },
+            },
+          },
+          { 1, {
+            { 1, "eo" },
+            { 1, "si" },
+          } },
         },
       },
       split_ui = {
@@ -92,7 +103,21 @@ return {
         c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
         cpp = {
           exec = "g++",
-          args = { "-Wall", "-Wextra", "-Wshadow", "-fsanitize=undefined", "$(FNAME)", "-o", "$(FNOEXT)" },
+          args = {
+            "-fsanitize=address,undefined",
+            "-g",
+            "-Wl,-z,stack-size=0x10000000",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wconversion",
+            "-Wfloat-equal",
+            "-Wduplicated-cond",
+            "-Wlogical-op",
+            "$(FNAME)",
+            "-o",
+            "$(FNOEXT)",
+          },
         },
         rust = { exec = "rustc", args = { "$(FNAME)" } },
         java = { exec = "javac", args = { "$(FNAME)" } },
