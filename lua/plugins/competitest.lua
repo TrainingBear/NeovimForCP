@@ -116,7 +116,7 @@ return {
             "-Wlogical-op",
             "$(FNAME)",
             "-o",
-            "$(FNOEXT)",
+            "sol",
           },
         },
         rust = { exec = "rustc", args = { "$(FNAME)" } },
@@ -125,7 +125,7 @@ return {
       running_directory = ".",
       run_command = {
         c = { exec = "./$(FNOEXT)" },
-        cpp = { exec = "./$(FNOEXT)" },
+        cpp = { exec = "./sol" },
         rust = { exec = "./$(FNOEXT)" },
         python = { exec = "python", args = { "$(FNAME)" } },
         java = { exec = "java", args = { "$(FNOEXT)" } },
