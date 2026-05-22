@@ -9,11 +9,15 @@ map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save file" })
 map("n", "<leader>wq", "<cmd>wq<CR>", { desc = "Save & quit" })
 
 -- Format
-vim.keymap.set("n", "<leader>f", function()
-  vim.lsp.buf.format({ async = true })
-end, { desc = "Format file" })
+-- vim.keymap.set("n", "<leader>f", function()
+--   vim.lsp.buf.format({ async = true })
+-- end, { desc = "Format file" })
+vim.keymap.set("n", "<leader>f", "mzgg=G`z", {
+  desc = "Format file and restore cursor"
+})
 
 -- CompetiTest shortucts
+map("n", "<leader>tr", "<cmd>CompetiTest receive contest<CR>", { desc = "CompetiTest receive contests" })
 map("n", "<leader>tr", "<cmd>CompetiTest receive problem<CR>", { desc = "CompetiTest receive problem" })
 map("n", "<leader>r", "<cmd>CompetiTest run<CR>", { desc = "Run code" })
 
