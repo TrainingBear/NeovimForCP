@@ -32,3 +32,14 @@ vim.keymap.set("n", "<leader>te", "<cmd>CompetiTest edit_testcase<CR>", {
 vim.keymap.set("n", "<leader>td", "<cmd>CompetiTest delete_testcase<CR>", {
   desc = "Delete testcase",
 })
+
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.del("n", "<leader><leader>")
+vim.keymap.set("n", "<leader><leader>", builtin.find_files, {
+  desc = "Find Files",
+})
+vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>bf', builtin.buffers, {})
+vim.keymap.set('n', '<leader>pr', builtin.oldfiles, {})

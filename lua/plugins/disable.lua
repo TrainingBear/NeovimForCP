@@ -9,7 +9,7 @@ return {
   { "windwp/nvim-ts-autotag", enabled = false },
 
   { "folke/todo-comments.nvim", enabled = false },
-  { "folke/persistence.nvim", enabled = false },
+  { "folke/persistence.nvim", enabled = true },
 
-  { "lewis6991/gitsigns.nvim", enabled = false },
+  { "lewis6991/gitsigns.nvim", enabled = true },
 }
